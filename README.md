@@ -1,1 +1,2 @@
-# -teranis2k21-web-
+# teranis2k21
+PHP/HTML/CSS/JQUERY/AJAX
