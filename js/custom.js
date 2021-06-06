@@ -128,14 +128,35 @@ $("#findReferal").submit(function (event) {
     posting.done(function (data) {
       $(".contact-form").trigger("reset");
       $("#findReferal").hide();
-      $("#referal_result_find").show();
       if (data == "") {
-        $('#referal_here_find').empty().append("There Is No Referal Code Attached To This Number, Contact Teranis Team For More Details!!!");
+        $("#warnorerror").show();
+        $('#warnorerror').empty().append("There Is No Referal Code Attached To This Number, Contact Teranis Team For More Details!!!");
       
       }
       else {
+        $("#referal_result_find").show();
         $('#referal_here_find').empty().append(data);
         $('#referal_here_find_link').empty().append("https://teranis.cselbscek.in/?referalcode="+data);
+
+        var posting = $.post(url, {
+          referalCode: data,
+          options: "3",
+        });
+        posting.done(function (data) {
+          if (data == "") {
+            $("#emptyerror").show();
+            $('#emptyerror').empty().append("<center style='color:red;'>No One Registered Using This Referal Code</center>");
+          }
+          else {
+            $('#registered_details').empty().append(data);
+          }
+        });
+        posting.fail(function () {
+    
+        });
+
+
+
       }
     });
     posting.fail(function () {
@@ -183,6 +204,7 @@ $(".event_form_full").submit(function(e) {
         if (errorCode == "0") {
           $("#success_register", det).show();
           $("#loading_screen", det).hide();
+
         } else if (errorCode == "1") {
   
           $("#failed_register", det).show();

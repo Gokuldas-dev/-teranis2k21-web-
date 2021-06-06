@@ -15,6 +15,8 @@ if (!window['jQuery']) alert('The jQuery library must be included before the smo
  * @author Ariel Flesler
  * @version 1.4.3.1
  */
+
+
 window.onscroll = function () {
   fixedMenu();
 };

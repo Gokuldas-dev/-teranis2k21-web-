@@ -255,6 +255,12 @@ a:hover, a:active, a:focus {
   text-transform: uppercase;
 }
 
+@media(max-width: 767px){
+  .feature h2 {
+    display: none;
+  }
+}
+
 /*---------------------------------------
      MENU             
   -----------------------------------------*/
@@ -532,14 +538,27 @@ a:hover, a:active, a:focus {
   border-radius: 2rem;
 
 }
+.event_last_date{
+  font-size: 18px !important;
+  letter-spacing: 1px;
+  position: relative;
 
+  text-align: left;
+}
+.event_last_date_pre{
+  font-size: 15px;
+  letter-spacing: 1px;
+
+  text-align: center !important;
+}
 .timeanddate{
   margin: 0;
   padding: 0;
   font-size: 1rem;
 }
 .timeanddate span {
-  color: red;
+  color: black;
+  font-weight: 600;
 }
 
 .tdleft{
@@ -688,8 +707,8 @@ a:hover, a:active, a:focus {
   position: relative;
   float: left;
   width: auto;
-  margin: 0rem 0rem 0rem 0.5rem;
-  top: 0.5rem;
+  margin: 0.3rem 0rem 0rem 0.5rem;
+  top: 0rem;
 }
 .about .heading_events_sub h2{
   font-size: 1.7rem;
@@ -819,12 +838,30 @@ button#submit-button:hover {
 }
 
 .contact img {
-  max-width: 120px;
+  max-width: 150px;
+  border-radius: 1rem;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
+#contact .contact-image img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 500px;
+}
+@media(max-width:442px){
+  #contact .contact-image img{
 
+    max-width: 300px;
+  }
+}
+@media(max-width:324px){
+  #contact .contact-image img{
+
+    max-width: 250px;
+  }
+}
 .contact p {
   margin-top: 1rem;
 }
@@ -1022,18 +1059,9 @@ button#submit-button:hover {
   background-color: rgba(0, 0, 0, 0.493);
   z-index: 2;
   font-weight: bold;
+  border: none;
 }
 
-.modal-event-main .modal-event-box .modal-event-close button {
-  background-color: transparent;
-  border: none;
-  font-weight: bold;
-  font-size: 1.1rem;
-  margin: 0;
-  padding: 0;
-  color: #fff;
-  cursor: pointer;
-}
 
 .modal-event-main .modal-event-box .modal-event-top {
   position: relative;
@@ -1054,7 +1082,7 @@ button#submit-button:hover {
   margin: 1rem;
 }
 .modal-event-main .modal-event-box .modal-event-body .modal_subhead {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: #fff;
   width: auto;
   margin: 0;
@@ -1094,14 +1122,14 @@ button#submit-button:hover {
 .modal-event-main .modal-event-box .modal-event-body .modal_randr ul li{
   position: relative;
   color: rgb(207, 207, 207);
-
+  margin-left: 12px;
 
   list-style: none;
   font-weight: none;
 }
 .modal-event-main .modal-event-box .modal-event-body .modal_randr ul li::before {
   content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-  color: red; /* Change the color */
+  color: white; /* Change the color */
   font-weight: bold; /* If you want it to be bold */
   display: inline-block; /* Needed to add space between the bullet and the text */
   width: 1em; /* Also needed for space (tweak if needed) */
@@ -1150,22 +1178,22 @@ button#submit-button:hover {
 .modal-event-main .modal-event-box .modal-event-body .winner_prize {
   text-align: center;
   position: relative;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   color: #fff;
   top: -1rem;
 }
 .modal-event-main .modal-event-box .modal-event-body .winner_prize span {
-  color: rgb(0, 235, 0);
+  color: rgb(255, 255, 255);
 }
 .modal-event-main .modal-event-box .modal-event-body .modal_dateandtime {
   text-align: center;
   position: relative;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
   color: #fff;
   top: -1rem;
 }
 .modal-event-main .modal-event-box .modal-event-body .modal_dateandtime span {
-  color: red;
+  color: white;
 }
 .modal-event-main .modal-event-box .modal-event-body h4 {
   text-align: center;
@@ -1291,6 +1319,10 @@ canvas {
 .link_warn span{
   color: red;
 }
+.head_table{
+  color: green;
+  font-size: 1.3rem;
+}
 #success_Submission {
   display: none;
 }
@@ -1349,11 +1381,14 @@ canvas {
 #forgot_referal {
   color: red;
   font-size: 1rem;
-  text-align: center;
-  text-transform: uppercase;
+  text-align: left;
+  /* text-transform: uppercase; */
   cursor: pointer;
 }
+#forgot_referal span{
+  color: blue;
 
+}
 #referal_here_find {
   color: red;
   font-size: 1.5rem;
@@ -1382,12 +1417,39 @@ canvas {
   position: relative;
   top: -0.5rem;
 }
+
+#referal_result_find table{
+  table-layout: fixed;
+  display: table;
+  margin: 0 auto;
+  width: 100%;
+  border: none;
+}
+#emptyerror{
+  display: none;
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: red;
+}
+#warnorerror{
+  display: none;
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  color: red;
+}
+#referal_result_find  th,
+#referal_result_find  td{
+
+  padding: 0.4rem;
+  
+}
+
 #findReferal {
   display: none;
 }
 
 #success_register {
-  padding: 3rem 0 3rem 0;
+  padding: 1rem 0 3rem 0;
   top: 0;
   border-radius: 1rem;
   display: none;
@@ -1419,7 +1481,7 @@ canvas {
 }
 
 #failed_register {
-  padding: 3rem 0 3rem 0;
+  padding: 1rem 0 3rem 0;
   top: 0;
   border-radius: 1rem;
   display: none;

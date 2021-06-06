@@ -77,6 +77,36 @@ if ($_POST["options"] == '2' && !empty($_POST["whatsapp"]) && !empty($_POST["col
     }
     $details = $stmt->fetch();
     echo $details['referal_Code'];
+}else if($_POST["options"] == '3'){
+
+    $referalCode = $_POST['referalCode'];
+    $query = " 
+    SELECT
+            id,
+            name,
+            event_name,
+            referal_Code
+
+    FROM events_registered
+    WHERE referal_Code = '$referalCode'
+";
+
+    try {
+
+        $stmt = $db->prepare($query);
+        $stmt->execute();
+    } catch (PDOException $ex) {
+        die("Failed to run query: " . $ex->getMessage());
+    }
+    $details = $stmt->fetchAll();
+    $pos = 0;
+    foreach ($details as $detail) :
+        $pos++; 
+        echo "<td>". $pos ."</td>";
+        echo "<td>". $detail['name'] ."</td>";
+        echo "<td>". $detail['event_name'] ."</td>";
+    endforeach;
+
 }
 
 ?>
