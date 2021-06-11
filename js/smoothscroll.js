@@ -36,13 +36,12 @@ function fixedMenu() {
       "maxWidth": "220px",
       "position": "absolute",
       "top": "0.5rem",
-      "display": "block"
     });
     $("#navbarNav").css({
       "top": "0",
     });
-    $(".navbar-brand img").attr("src", "images/logo/teranis-straight.png");
-
+    $(".navbar-brand .main-logo").hide();
+    $(".navbar-brand .fixed-logo").show();
   } else {
     $(".navbar").css({
       "background": "",
@@ -53,16 +52,22 @@ function fixedMenu() {
       "background": "",
       "position": ""
     });
+    if(screen.width <= "991"){
+      $(".navbar-brand .main-logo").hide();
+      $(".navbar-brand .fixed-logo").hide();
+    }else{
+      $(".navbar-brand .main-logo").show();
+      $(".navbar-brand .fixed-logo").hide();
+    }
+    
     $(".navbar-brand img").css({
       "maxWidth": "",
-      "display": "",
       "position": "",
       "top": ""
     });
     $("#navbarNav").css({
       "top": "",
     });
-    $(".navbar-brand img").attr("src", "images/logo/teranis.png");
 
     $(".navbar-toggler-icon").addClass("navbar-toggler-white").removeClass("navbar-toggler-black");
     $(".navbar-toggler-icon").css("top", "");

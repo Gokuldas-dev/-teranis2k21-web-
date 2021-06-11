@@ -240,6 +240,11 @@ $(".event_form_full").submit(function(e) {
           $("#failed_register", det).show();
           $("#failed_register b", det).empty().append("Unknown Error, Contact Teranis Team...");
           $("#loading_screen", det).hide();
+        }else if (errorCode == "7") {
+  
+          $("#failed_register", det).show();
+          $("#failed_register b", det).empty().append("Registration Closed");
+          $("#loading_screen", det).hide();
         }
       },
       cache: false,
@@ -269,3 +274,6 @@ if(screen.width <= "991"){
     second.outerHTML = third.outerHTML;
   }
 }
+
+
+

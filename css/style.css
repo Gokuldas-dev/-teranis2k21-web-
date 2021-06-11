@@ -7,6 +7,27 @@ https://www.tooplate.com/view/2119-gymso-fitness
 */
 
 @font-face {
+  font-family: 'latest';
+  src: url('../fonts/Lato-Regular.ttf') format('woff2'), url('../fonts/Lato-Regular.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'latest';
+  src: url('../fonts/Lato-Light.ttf') format('woff2'), url('../fonts/Lato-Light.ttf') format('ttf');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'latest';
+  src: url('../fonts/Lato-Bold.ttf') format('woff2'), url('../fonts/Lato-Bold.ttf') format('ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'Plain';
   src: url('../fonts/Plain-Regular.woff2') format('woff2'), url('../fonts/Plain-Regular.woff') format('woff');
   font-weight: normal;
@@ -35,7 +56,7 @@ https://www.tooplate.com/view/2119-gymso-fitness
   --gray-color: #909090;
   --link-color: #404040;
   --p-color: #666262;
-  --base-font-family: 'Plain', sans-serif;
+  --base-font-family: 'Arial', sans-serif;
   --font-weight-bold: bold;
   --font-weight-normal: normal;
   --font-weight-light: 300;
@@ -129,13 +150,30 @@ b, strong {
   padding: 14px 24px;
   color: var(--white-color);
   font-size: var(--menu-font-size);
+  font-family: 'Plain', serif;
   font-weight: var(--font-weight-normal);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   white-space: nowrap;
   transition: all 0.3s ease;
 }
-
+.closed-btn {
+  background: transparent;
+  border-radius: var(--border-radius-small);
+  padding: 14px 24px;
+  border: 0 !important;
+  color: red !important;
+  font-size: var(--menu-font-size);
+  font-family: 'Plain', serif;
+  font-weight: var(--font-weight-normal);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+.closed-btn:hover {
+  background-color: transparent;
+}
 .custom-btn:hover {
   color: rgb(255, 255, 255) !important;
   background-color: var(--primary-color) !important;
@@ -281,7 +319,9 @@ a:hover, a:active, a:focus {
   left: 13%;
   top: 2rem;
 }
-
+.fixed-logo {
+  display: none;
+}
 @media(max-width:1199px) {
   .navbar-brand img {
     max-width: 150px;
@@ -502,6 +542,8 @@ a:hover, a:active, a:focus {
   color: rgb(105, 105, 105);
   bottom: 50%;
   top: 50%;
+  font-family: 'Plain', sans-serif;;
+  font-weight: 500;
   text-transform: uppercase;
   -ms-transform: rotate(-90deg);
   transform: rotate(-90deg);
@@ -545,16 +587,24 @@ a:hover, a:active, a:focus {
 
   text-align: left;
 }
+/* .event_last_date span{
+  color: #000;
+} */
 .event_last_date_pre{
   font-size: 15px;
+  font-weight: normal;
   letter-spacing: 1px;
 
   text-align: center !important;
 }
+/* .event_last_date_pre span{
+  color: #000;
+} */
 .timeanddate{
   margin: 0;
   padding: 0;
   font-size: 1rem;
+  font-weight: normal;
 }
 .timeanddate span {
   color: black;
@@ -707,14 +757,26 @@ a:hover, a:active, a:focus {
   position: relative;
   float: left;
   width: auto;
-  margin: 0.3rem 0rem 0rem 0.5rem;
+  margin: 0.4rem 0rem 0rem 0.5rem;
+  font-weight: normal;
   top: 0rem;
 }
 .about .heading_events_sub h2{
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   position: relative;
   font-weight: normal;
   text-transform: uppercase;
+}
+@media(max-width: 991px){
+  .about .heading_events_sub{
+    position: relative;
+    float: left;
+    width: auto;
+    width: 100%;
+    margin: 0rem 0rem 0rem 0rem;
+    font-weight: normal;
+    top: 0rem;
+  }
 }
 .about p{
   width: 100%;
@@ -735,7 +797,8 @@ a:hover, a:active, a:focus {
     top: 0;
   }
   .about .heading_events_sub h2{
-    font-size: 1.7rem;
+    font-size: 1.5rem;
+    top: -0.5rem;
     position: relative;
     font-weight: normal;
     text-align: center;
@@ -755,15 +818,16 @@ a:hover, a:active, a:focus {
 
 .team-thumb {
   position: relative;
-
 }
 .team-thumb img{
   border-radius: 1rem;
-  display: block;
+  /* display: block;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto; */
 }
-
+.form-label span{
+  color: red;
+}
 .team-info {
   background: var(--white-color);
   border-radius: 0 0 2px 2px;
@@ -871,7 +935,6 @@ button#submit-button:hover {
   -----------------------------------------*/
 
 .site-footer {
-  border-top: 1px solid #efebeb;
   padding: 0;
 }
 
@@ -998,7 +1061,12 @@ button#submit-button:hover {
   .right_btn {
     float: none;
     position: relative;
-    top: 0;
+    top: 1.5rem;
+    margin-top: 1rem !important;
+    margin-bottom: 3rem !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 .contact h2 {
@@ -1361,6 +1429,15 @@ canvas {
   text-align: left;
 }
 
+.not_enrolled {
+  color: red;
+  font-size: 1rem;
+  position: relative;
+  top: 0rem;
+  font-weight: normal;
+  text-align: left;
+}
+
 #failed_Submission {
   display: none;
 }
@@ -1547,7 +1624,7 @@ canvas {
   border-radius: 1rem;
   border: none;
   margin: 0.4rem;
-  width: 50%;
+  width: 80%;
   display: block;
   margin-left: auto;
   margin-right: auto;

@@ -22,9 +22,13 @@ if (!empty($_FILES["fileToUpload"]["name"])) {
         $stmt = $db->prepare($query);
         $stmt->execute();
     } catch (PDOException $ex) {
-        die("Failed to run query: " . $ex->getMessage());
+        die();
     }
     $events = $stmt->fetch();
+    if($events == null){
+
+        die("7");
+    }
     define('KB', 1024);
     define('MB', 1048576);
     define('GB', 1073741824);
@@ -60,26 +64,40 @@ if (!empty($_FILES["fileToUpload"]["name"])) {
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
 
+        if(isset($_POST['email'])){
+            $email = $_POST['email'];
+        }else {
+            $email = null;
+        }
+        if(isset($_POST['field1'])){
+            $field1 = $_POST['field1'];
+        }else {
+            $field1 = null;
+        }
 
             $query = " 
           INSERT INTO events_registered ( 
               name,
               whatsapp,
+              email,
               referal_Code,
               college,
               event_id,
               bill_upload,
               event_name,
+              field1,
               date,
               time
           ) VALUES ( 
               :name,
               :whatsapp,
+              :email,
               :referal_Code,
               :college,
               :event_id,
               :bill_upload,
               :event_name,
+              :field1,
               :date,
               :time
           ) 
@@ -90,6 +108,8 @@ if (!empty($_FILES["fileToUpload"]["name"])) {
                 ':whatsapp' => $_POST['whatsapp'],
                 ':referal_Code' => $_POST['referal_Code'],
                 ':college' => $_POST['college'],
+                ':email' => $email,
+                ':field1' => $field1,
                 ':bill_upload' => $target_name,
                 ':event_id' => $eventsID,
                 ':event_name' => $events['name'],
